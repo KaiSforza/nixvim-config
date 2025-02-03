@@ -23,7 +23,7 @@
     ./utils/wilder.nix
   ];
 
-  colorschemes.vscode.enable = true;
+  colorschemes.ayu.enable = true;
   plugins.web-devicons.enable = true;
 
   diagnostics = { virtual_lines.only_current_line = true; };
