@@ -3,7 +3,7 @@
   plugins = {
     luasnip.enable = true;
     copilot-lua = {
-      enable = true;
+      enable = false;
       settings = {
         suggestion.enabled = false;
         panel.enabled = false;

@@ -2,8 +2,9 @@
   description = "A nixvim configuration";
 
   inputs = {
-    nixvim.url = "github:nix-community/nixvim";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs = {url = "github:nixos/nixpkgs/nixos-24.11";};
+    nixvim = {url = "github:nix-community/nixvim";};
+    flake-utils = {url = "github:numtide/flake-utils";};
   };
 
   outputs = { self, nixpkgs, nixvim, flake-utils, ... }@inputs:
@@ -16,6 +17,7 @@
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
           module = config;
+          
         };
       in
       {
