@@ -23,7 +23,9 @@
     ./utils/wilder.nix
   ];
 
-  colorschemes.ayu.enable = true;
+  colorschemes.nightfox.enable = true;
+  colorschemes.nightfox.flavor = "carbonfox";
+
   plugins.web-devicons.enable = true;
 
   diagnostics = { virtual_lines.only_current_line = true; };
