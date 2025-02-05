@@ -9,7 +9,10 @@
 
   outputs = { self, nixpkgs, nixvim, flake-utils, ... }@inputs:
     let config = import ./config; # import the module directly
-    in flake-utils.lib.eachDefaultSystem (system:
+    in
+    {
+      nixvimModule = config;
+    } // flake-utils.lib.eachDefaultSystem (system:
       let
         nixvimLib = nixvim.lib.${system};
         pkgs = import nixpkgs { inherit system; };
@@ -17,7 +20,7 @@
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
           module = config;
-          
+            
         };
       in
       {
@@ -29,6 +32,7 @@
             name = "My nixvim configuration";
           };
         };
+
 
         packages = {
           # Lets you run `nix run .` to start nixvim
